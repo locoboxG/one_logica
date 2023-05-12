@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--Ciclos -->
+</head>
+<body>
+	<h2>Años Mundiales Fifa</h2>
+	<script type="text/javascript">
+		var anhoMundial = 1930;
+		var mundiales = "";
+		var limite = parseInt(prompt("Año limite de busqueda"));
+		while (anhoMundial<=limite) {
+			//alert ("Mundial de " + anhoMundial);
+			mundiales += "Mundial de " + anhoMundial + "<br>";
+			anhoMundial +=4; 
+		}
+		document.write(mundiales);
+	</script>
+</body>
+</html>

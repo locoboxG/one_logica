@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--acumulando valores-->
+</head>
+<body>
+	<h1>Media de las edades de una familia</h1>
+	<script type="text/javascript">
+		var familiares = parseInt(prompt("Cuantas personas son en su familia ??"));
+		var totalEdades = 0, mediaEdades;
+		for (var cx = 1; cx <= familiares ;cx++){ 
+			edad = parseInt(prompt("Edad del familiar ("+cx +"/" +familiares +") ??"));
+			totalEdades += edad;
+		}
+		mediaEdades  = totalEdades / familiares;
+		document.write ("Media de edades de la familia    " + mediaEdades);
+	</script>
+</boy>
+</html>

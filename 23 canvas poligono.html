@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<canvas width="400" height="400"></canvas>
+	<script type="text/javascript">
+		var pantalla = document.querySelector ("canvas");
+		var pincel = pantalla.getContext("2d");
+		let ancho = 150;
+		let centrox = 200;
+		let centroy = 200;
+		let lados = 5;
+		let angulo = 2 * Math.PI / lados; 
+		let ladeado = - Math.PI / 2;
+		pincel.fillStyle = "green";
+		pincel.strokeStyle = "black";
+		pincel.beginPath();
+		for (var cx=0; cx < lados; cx++) {
+			let px = Math.round(centrox + ancho * Math.cos (angulo * cx + ladeado));
+			let py = Math.round(centroy + ancho * Math.sin (angulo * cx + ladeado));
+			console.log ("punto " + (cx+1) + " :( " + px + " , " + py + " )");
+			if (cx==0) {
+				pincel.moveTo (px,py);
+			} else {
+				pincel.lineTo (px,py);
+			}
+		}
+		pincel.fill();
+		pincel.stroke();
+	</script>
+</body>
+</html>

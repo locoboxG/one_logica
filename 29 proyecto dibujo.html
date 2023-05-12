@@ -1,0 +1,58 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+    var mcolor = "blue";
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+    pincel.fillStyle = 'red';
+    pincel.fillRect(0, 0, 50, 50);
+    pincel.fillStyle = 'green';
+    pincel.fillRect(50, 0, 50, 50);
+    pincel.fillStyle = 'blue';
+    pincel.fillRect(100, 0, 50, 50);
+
+    var puedoDibujar = false;
+
+    function dibujarCirculo(evento) {
+
+        if(puedoDibujar) {
+                var x = evento.pageX - pantalla.offsetLeft;
+                var y = evento.pageY - pantalla.offsetTop;
+                if (!(x<155 && y<55)) {
+                pincel.fillStyle = mcolor;
+                pincel.beginPath();
+                pincel.arc(x, y, 5, 0, 2 * 3.14);
+                pincel.fill();
+            } 
+        }
+    }
+
+    pantalla.onmousemove = dibujarCirculo;
+
+    function habilitarDibujar() {
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar() {
+        puedoDibujar = false;
+    }
+
+    pantalla.onmousedown = habilitarDibujar;
+    pantalla.onmouseup = deshabilitarDibujar;
+
+    function eligeColor (evento){
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        if ((y<50)) {
+            if (x<50) {mcolor = "red";
+            } else {if (x<100) {mcolor = "green";
+                    } else {mcolor = "blue";
+                    }
+            }
+        }
+    } 
+
+    pantalla.onclick = eligeColor;
+</script>

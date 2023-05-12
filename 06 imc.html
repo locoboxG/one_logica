@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--Uso de funciones, 
+		condiciones con logicas mas complejas anidadas multi condiciones-->
+</head>
+<body>
+
+	<script type="text/javascript">
+		var pesoDado,alturaDada,imc;
+		function saltarLinea () {
+			document.write("<br><br><br>");
+		}
+		function imprimir (frase) {
+			document.write(frase);
+			saltarLinea();
+		}
+		function calcularImc (peso, altura){
+			return (peso/altura/altura);
+		}
+		pesoDado = prompt("¿Cual es su peso?");
+		alturaDada = prompt("¿Cual es su altura?");
+		imc = calcularImc(pesoDado,alturaDada);
+		imprimir ("Indice de Masa Corporal : " + imc);
+		if (imc < 18.5) {
+			imprimir ("Bajo de peso");
+		}
+		if (imc >= 18.5) {
+			if (imc < 25) {
+				imprimir ("Peso adecuado (Fluffy scale : healty)");
+			}	
+		}
+        if (imc >= 25 && imc < 30) {
+			imprimir ("Sobre Peso  (Fluffy scale : husky)");
+		}
+		 if (imc >= 30 && imc < 35) {
+			imprimir ("Obesidad 1  (Fluffy scale : fluffy)");
+		}
+		 if (imc >= 35 && imc < 40) {
+			imprimir ("Obesidad 2  (Fluffy scale : Damn!)");
+		}
+		if (imc >= 40) {
+			imprimir ("Obesidad 3  (Fluffy scale : hell no!)");
+		}
+
+	</script>
+</body>
+</html>

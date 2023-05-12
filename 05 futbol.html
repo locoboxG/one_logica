@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--Convertir texto a numero-->
+	<!--Uso de condiciones simples-->
+</head>
+<body>
+	<h1>Calculo puntos de un equipo de futbol</h1>
+	<script type="text/javascript">
+		var victorias = parseInt(prompt ("Cantidad de partidos ganados :"));
+		var empates = parseInt(prompt ("Cantidad de partidos empatados :"));
+		total = victorias * 3 + empates;
+		document.write("Puntos obtenidos " + total + "<br>");
+
+		var anterior = 28;
+		if (total > anterior) {	
+			document.write("El equipo tiene un desempeño mejor que el año pasado");
+		} 
+		if (total == anterior) {
+			document.write("El equipo tiene un desempeño igual que el año pasado");
+		}
+		if (total < anterior) {
+			document.write("El equipo tiene un desempeño peor que el año pasado");
+		}	
+	</script>
+</body>
+</html>

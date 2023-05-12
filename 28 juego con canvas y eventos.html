@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<canvas width="600" height="600" ></canvas>
+	<script type="text/javascript">
+		var pantalla = document.querySelector ("canvas");
+		var pincel = pantalla.getContext("2d");
+		var x=100,y=100;
+
+		pincel.fillStyle = "lightgrey";
+		pincel.fillRect (0,0,600,600);
+		var viajex = Math.round(Math.random()*10);
+		var viajey = Math.round(Math.random()*10);
+
+		function posicionAleatoria() {
+			x = Math.round(Math.random()*500)+50;
+			y = Math.round(Math.random()*500)+50;
+		}
+
+		function dibujarCirculo (px,py,color,tamano) {
+			pincel.fillStyle = color;
+			pincel.beginPath();
+			pincel.arc (x,y,tamano,0,2*Math.PI);
+			pincel.fill();
+		}
+
+		function dibujarObjetivo () {
+			dibujarCirculo(x,y,"lightgrey",44);
+			posicionAleatoria();
+			dibujarCirculo(x,y,"red",30);
+			dibujarCirculo(x,y,"white",20);
+			dibujarCirculo(x,y,"red",10);
+		}
+
+		setInterval(dibujarObjetivo,1480);
+
+		function disparar (evento) {
+			var dondeX = evento.pageX - pantalla.offsetLeft;
+			var dondeY = evento.pageY - pantalla.offsetTop;
+
+			if ((dondeX < x+10)&&(dondeX > x-10)&&(dondeY < y+10)&&(dondeY > y-10)) {
+				alert("bulls eye");
+			}
+
+			console.log("posicion "+x+","+y+" disparo :" +dondeX+","+dondeY);
+		}
+
+		pantalla.onclick = disparar;
+	</script>
+</body>
+</html>

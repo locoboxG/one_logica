@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--numeros aleatorios-->
+</head>
+<body>
+	<h1>Adiviname el numero</h1>
+	<script type="text/javascript">
+		var intentos = 3;
+		var cx = 1;
+		var numeroMaximo = parseInt(prompt("Hasta que numero adivinamos"));
+		var numeroPensado = Math.round(Math.random()*numeroMaximo);
+		var numeroPedido ;
+		
+		while (cx <= intentos) {
+	        numeroPedido = parseInt(prompt("Un numero entre 0 y "+numeroMaximo));
+			if (numeroPedido == numeroPensado) {
+				break;
+			} else {
+				alert("Lo siento fallaste, intenta de nuevo ");
+			}
+			cx++;
+		}
+		
+		if (numeroPedido == numeroPensado) {
+			document.write("Acertaste en el intento " + cx);
+		} else {
+			document.write("Lo siento fallaste, el numero era : "+ numeroPensado);
+		}	
+	</script>
+</body>
+</html>

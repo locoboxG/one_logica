@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<canvas width="600" height="600" ></canvas>
+	<script type="text/javascript">
+		var pantalla = document.querySelector ("canvas");
+		var pincel = pantalla.getContext("2d");
+
+		pincel.fillStyle = "lightgrey";
+		pincel.fillRect (0,0,600,600);
+
+		var x = Math.round(Math.random()*400)+20;
+		var y = Math.round(Math.random()*400)+20;
+
+		var viajex = Math.round(Math.random()*10);
+		var viajey = Math.round(Math.random()*10);
+
+		function dibujarCirculo (px,py,color,tamano) {
+			pincel.fillStyle = color;
+			pincel.beginPath();
+			pincel.arc (x,y,tamano,0,2*Math.PI);
+			pincel.fill();
+		}
+
+		function animarCirculo () {
+     		let colr = Math.floor(Math.random()*255);
+			let colg = Math.floor(Math.random()*255);
+			let colb = Math.floor(Math.random()*255);
+			let mcolor = "rgb("+colr+","+colg+","+colb+")";
+			dibujarCirculo(x,y,"lightgrey",11);
+			x+= viajex;
+			y+= viajey;
+			dibujarCirculo(x,y,mcolor,10);
+
+			if (x>580) {viajex = Math.round(Math.random()*-10);}
+			if (x< 20) {viajex = Math.round(Math.random()*10);}
+			if (y>580) {viajey = Math.round(Math.random()*-10);}
+			if (y< 20) {viajey = Math.round(Math.random()*10);}
+
+			console.log("posicion "+x+","+y);
+		}
+
+		setInterval(animarCirculo,80);
+		//pantalla.onclick = animarCirculo;
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		function saltarLinea () {
+			document.write("<br><br><br>");
+		}
+		function imprimir (frase) {
+			document.write(frase);
+			saltarLinea();
+		}
+		function calcularImc (peso, altura){
+			return (peso/altura/altura);
+		}
+		pesoDado = prompt("¿Cual es su peso?");
+		alturaDada = prompt("¿Cual es su altura?");
+		imprimir ("Indice de Masa Corporal : " + calcularImc(pesoDado,alturaDada));
+	</script>
+</body>
+</html>
